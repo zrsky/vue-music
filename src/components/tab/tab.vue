@@ -1,9 +1,9 @@
 <template>
   <div class="tab">
-    <router-link tag="div" class="tab-item" :to='{name:"recommend"}'><span class="tab-link">推荐</span></router-link>
-    <router-link tag="div" class="tab-item" :to='{name:"singer"}'><span class="tab-link">歌手</span></router-link>
-    <router-link tag="div" class="tab-item" :to='{name:"rank"}'><span class="tab-link">排行</span></router-link>
-    <router-link tag="div" class="tab-item" :to='{name:"search"}'><span class="tab-link">搜索</span></router-link>
+    <router-link tag="div" class="tab-item" to='/recommend'><span class="tab-link">推荐</span></router-link>
+    <router-link tag="div" class="tab-item" to='/singer'><span class="tab-link">歌手</span></router-link>
+    <router-link tag="div" class="tab-item" to='/rank'><span class="tab-link">排行</span></router-link>
+    <router-link tag="div" class="tab-item" to='/search'><span class="tab-link">搜索</span></router-link>
   </div>
 </template>
 <script>
@@ -11,8 +11,10 @@
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
   .tab
-    margin-top:44px
+    top:44px
     display:flex
+    position:fixed
+    z-index:1000
     background:#000
     width:100%
     color:#fff

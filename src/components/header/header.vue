@@ -11,6 +11,7 @@
     position:fixed
     top:0
     left:0
+    z-index: 1000
     height:44px
     width:100%
     text-align:center
