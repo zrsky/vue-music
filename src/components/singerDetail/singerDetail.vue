@@ -6,11 +6,37 @@
 </template>
 <script>
 import {getSingerDetail} from 'api/singer';
+import {ERR_OK} from 'api/config.js';
+import {createSong} from 'common/js/song.js';
 export default {
+  data() {
+    return {
+      songs: {},
+    }
+  },
   created() {
-    getSingerDetail('002J4UUk29y8BY').then(res=>{
-      console.log(res)
-    })
+    this._getDetail();
+  },
+  methods: {
+    _getDetail() {
+      getSingerDetail(this.$route.params.id).then(res=>{
+        console.log(ERR_OK)
+        if(res.code == ERR_OK) {
+          this.songs = this._normalizeSongs(res.data.list);
+          console.log(this.songs)
+        }
+    });
+    },
+    _normalizeSongs(list) {
+      let ret = [];
+      list.forEach((item,index) => {
+        let {musicData} = item;
+        if (musicData.songid && musicData.albummid) {
+          ret.push(createSong(musicData));
+        }
+      })
+      return ret;
+    }
   }
 }
 </script>

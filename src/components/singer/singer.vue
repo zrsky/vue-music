@@ -92,7 +92,7 @@ const HOT_LEN = 10;
       },
       onSelectSinger(item) {
         this.$router.push({
-          path:`/singer/${item.id}`
+          path:`/singer/${item.id}`,params: {id:item.id}
         })
         console.log(this.$router)
 
